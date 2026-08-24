@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://unoporciento.com.ar/sitemap.xml
