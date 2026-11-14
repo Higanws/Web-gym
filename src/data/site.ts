@@ -39,21 +39,21 @@ export const whatsappHref = (text: string) =>
   `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`
 
 export const images = {
-  logo: '/images/logo-header.png',
-  logoFull: '/images/logo-uno.png',
-  hero: '/images/clase.jpg',
-  athlete: '/images/boxeo.jpg',
-  gym: '/images/sala.jpg',
-  machines: '/images/mancuernas.jpg',
-  coach: '/images/coaching.jpg',
-  boxing: '/images/boxeo.jpg',
-  squat: '/images/fuerza.jpg',
-  core: '/images/abs.jpg',
-  ropes: '/images/funcional.jpg',
-  turf: '/images/cesped.jpg',
-  floor: '/images/piso.jpg',
-  racks: '/images/racks.jpg',
-  pulleys: '/images/poleas.jpg',
+  logo: '/images/logo-header.webp',
+  logoFull: '/images/logo-uno.webp',
+  hero: '/images/clase.webp',
+  athlete: '/images/boxeo.webp',
+  gym: '/images/sala.webp',
+  machines: '/images/mancuernas.webp',
+  coach: '/images/coaching.webp',
+  boxing: '/images/boxeo.webp',
+  squat: '/images/fuerza.webp',
+  core: '/images/abs.webp',
+  ropes: '/images/funcional.webp',
+  turf: '/images/cesped.webp',
+  floor: '/images/piso.webp',
+  racks: '/images/racks.webp',
+  pulleys: '/images/poleas.webp',
 } as const
 
 export const pillars = [
