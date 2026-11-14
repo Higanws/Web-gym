@@ -1,9 +1,9 @@
 export const site = {
-  name: 'uno%',
-  legalName: 'Uno% Fitness',
-  tagline: 'Donde el fitness se convierte en tu estilo de vida',
+  name: 'UNO%',
+  legalName: 'UNO% Fitness',
+  tagline: 'Un gimnasio de barrio con entrenamiento de calidad, coaches cerca y una comunidad que te acompaña.',
   description:
-    'Gimnasio de una sola sede en San Cristóbal, CABA. Entrenamiento de fuerza, funcional y coaching personalizado en Pasco 649.',
+    'UNO% es un espacio de entrenamiento en San Cristóbal, pensado para progresar con técnica, constancia y acompañamiento. Pasco 649, CABA.',
   url: 'https://unoporciento.com.ar',
   phone: '+54 11 3781-8940',
   phoneHref: 'tel:+541137818940',
@@ -23,18 +23,13 @@ export const site = {
     latitude: -34.6228,
     longitude: -58.4009,
   },
-  hours: [
-    { days: 'Lunes a viernes', time: '7:00 – 22:00' },
-    { days: 'Sábados', time: '9:00 – 18:00' },
-    { days: 'Domingos', time: '10:00 – 14:00' },
-  ],
-  hoursShort: 'Lun–Vie 7–22h · Sáb 9–18h · Dom 10–14h',
 } as const
 
 export const navItems = [
   { href: '#inicio', label: 'Inicio' },
   { href: '#gym', label: 'El gym' },
   { href: '#entrenamientos', label: 'Entrenamientos' },
+  { href: '#horarios', label: 'Horarios' },
   { href: '#planes', label: 'Planes' },
   { href: '#galeria', label: 'Galería' },
   { href: '#ubicacion', label: 'Ubicación' },
@@ -44,19 +39,138 @@ export const whatsappHref = (text: string) =>
   `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`
 
 export const images = {
-  hero: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=2000&q=80',
-  athlete:
-    'https://images.unsplash.com/photo-1599058945522-28d584b6f14b?auto=format&fit=crop&w=1400&q=80',
-  gym: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80',
-  machines:
-    'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1400&q=80',
-  coach:
-    'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1200&q=80',
-  boxing:
-    'https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=1200&q=80',
-  squat:
-    'https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?auto=format&fit=crop&w=1200&q=80',
-  core: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1200&q=80',
-  ropes:
-    'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80',
+  logo: '/images/logo-header.png',
+  logoFull: '/images/logo-uno.png',
+  hero: '/images/clase.jpg',
+  athlete: '/images/boxeo.jpg',
+  gym: '/images/sala.jpg',
+  machines: '/images/mancuernas.jpg',
+  coach: '/images/coaching.jpg',
+  boxing: '/images/boxeo.jpg',
+  squat: '/images/fuerza.jpg',
+  core: '/images/abs.jpg',
+  ropes: '/images/funcional.jpg',
+  turf: '/images/cesped.jpg',
+  floor: '/images/piso.jpg',
+  racks: '/images/racks.jpg',
+  pulleys: '/images/poleas.jpg',
 } as const
+
+export const pillars = [
+  { id: '01', title: 'Musculación', copy: 'Fuerza, progresión y acompañamiento en sala.' },
+  { id: '02', title: 'Clases', copy: 'Funcional, boxeo, HIIT, Strong UNO% y full body.' },
+  { id: '03', title: 'Coaching', copy: 'Entrenadores presentes y un plan que se ajusta a vos.' },
+] as const
+
+export const programs = [
+  {
+    title: 'Musculación',
+    copy: 'Fuerza, progresión y acompañamiento en sala.',
+    image: images.pulleys,
+  },
+  {
+    title: 'Funcional',
+    copy: 'Fuerza, coordinación y capacidad física.',
+    image: images.ropes,
+  },
+  {
+    title: 'Boxeo',
+    copy: 'Técnica, coordinación y trabajo cardiovascular.',
+    image: images.boxing,
+  },
+  {
+    title: 'Cardio HIIT',
+    copy: 'Bloques intensos y eficientes.',
+    image: images.hero,
+  },
+  {
+    title: 'Strong UNO%',
+    copy: 'Entrenamiento de fuerza en formato guiado.',
+    image: images.squat,
+  },
+  {
+    title: 'Full Body + Abs',
+    copy: 'Trabajo integral y zona media.',
+    image: images.core,
+  },
+] as const
+
+export const week = [
+  { day: 'Lun', classes: ['12:30 Strong UNO%', '13:00 ABS', '18:00 Funcional'] },
+  { day: 'Mar', classes: ['08:00 HIIT', '09:30 Funcional', '13:00 ABS', '17:30 Boxeo', '18:30 Boxeo'] },
+  { day: 'Mié', classes: ['09:00 Boxeo', '13:00 Full Body', '18:00 Strong'] },
+  { day: 'Jue', classes: ['08:00 HIIT', '09:30 Funcional', '13:00 ABS', '18:00 Boxeo', '19:00 Boxeo'] },
+  { day: 'Vie', classes: ['13:00 Strong UNO%', '18:00 Funcional'] },
+  { day: 'Sáb', classes: ['13:00 HIIT', '17:00 Full Body', '18:00 ABS'] },
+] as const
+
+export const services = [
+  {
+    title: 'Personalizado',
+    kicker: 'Presencial',
+    copy: 'Plan individual, evaluación, técnica y seguimiento.',
+  },
+  {
+    title: 'Entrenamiento',
+    kicker: 'Online',
+    copy: 'Rutinas diseñadas según tus objetivos y recursos.',
+  },
+  {
+    title: 'Plan de alimentación',
+    kicker: 'Nutrición',
+    copy: 'Orientación profesional y seguimiento nutricional.',
+  },
+  {
+    title: 'Coaching',
+    kicker: 'A medida',
+    copy: 'Acompañamiento y ajustes según tu evolución.',
+  },
+] as const
+
+export const challenges = [
+  {
+    title: 'Reto inicial',
+    days: '21 días',
+    copy: 'Un primer impulso para crear hábitos y recuperar constancia.',
+    image: images.hero,
+  },
+  {
+    title: 'Reto evolución',
+    days: '60 días',
+    copy: 'Un proceso más completo con objetivos, seguimiento y comunidad.',
+    image: images.gym,
+  },
+] as const
+
+export const plans = [
+  {
+    name: 'Pase diario',
+    price: '$11.500',
+    note: 'Acceso por el día',
+    featured: false,
+    perks: ['Entrá y entrená hoy', 'Piso de musculación', 'Sin permanencia'],
+  },
+  {
+    name: 'Mensual',
+    price: '$55.000',
+    note: 'Piso + clases ilimitadas*',
+    featured: true,
+    perks: [
+      'Piso + clases ilimitadas*',
+      'Seguimiento de coaches',
+      'Comunidad UNO%',
+    ],
+  },
+  {
+    name: 'Trimestral',
+    price: '$148.000',
+    note: 'Compromiso y continuidad',
+    featured: false,
+    perks: ['Todo el plan mensual', 'Mejor valor mensual', 'Constancia de 90 días'],
+  },
+] as const
+
+export const extraPlans = [
+  { name: 'Semestral', price: '$290.000', note: 'Mejor planificación' },
+  { name: 'Anual', price: '$560.000', note: 'La opción de largo plazo' },
+] as const

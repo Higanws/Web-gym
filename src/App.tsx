@@ -6,6 +6,8 @@ import { Hero } from './components/Hero'
 import { Location } from './components/Location'
 import { Marquee } from './components/Marquee'
 import { Plans } from './components/Plans'
+import { Schedule } from './components/Schedule'
+import { Services } from './components/Services'
 import { Stats } from './components/Stats'
 import { Testimonials } from './components/Testimonials'
 import { Training } from './components/Training'
@@ -27,6 +29,8 @@ export default function App() {
         <Marquee />
         <About />
         <Training />
+        <Schedule />
+        <Services />
         <Plans />
         <Gallery />
         <Testimonials />

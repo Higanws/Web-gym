@@ -1,4 +1,4 @@
-import { Clock, MapPin, Navigation, Phone } from 'lucide-react'
+import { MapPin, Navigation, Phone } from 'lucide-react'
 import { site, whatsappHref } from '../data/site'
 
 export function Location() {
@@ -7,62 +7,55 @@ export function Location() {
   return (
     <section id="ubicacion" className="bg-ink-2">
       <div className="mx-auto grid max-w-7xl lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="flex flex-col justify-center px-5 py-16 lg:px-12">
-          <p className="text-xs font-bold tracking-[0.32em] text-brand uppercase">Ubicación</p>
-          <h2 className="font-display mt-3 text-5xl text-white sm:text-6xl">SAN CRISTÓBAL</h2>
-          <p className="mt-4 max-w-md text-mute">
+        <div className="flex flex-col justify-center px-5 pt-28 pb-16 lg:px-12">
+          <h2 className="font-display text-5xl text-white sm:text-6xl">
+            SAN
+            <br />
+            CRISTÓBAL.
+          </h2>
+          <p className="measure mt-5 text-mute">
             Una sola sede, fácil de llegar. Estamos en Pasco, entre el ritmo del barrio y a
             minutos de Av. Independencia.
           </p>
 
-          <ul className="mt-8 space-y-4 text-sm">
-            <li className="flex gap-3">
-              <MapPin className="mt-0.5 shrink-0 text-brand" size={18} />
+          <address className="mt-8 space-y-4 text-sm not-italic">
+            <p className="flex gap-3">
+              <MapPin className="mt-0.5 shrink-0 text-brand" size={18} aria-hidden />
               <span>
                 <strong className="block text-white">{site.legalName}</strong>
                 {fullAddress}
               </span>
-            </li>
-            <li className="flex gap-3">
-              <Phone className="mt-0.5 shrink-0 text-brand" size={18} />
+            </p>
+            <p className="flex min-h-11 items-center gap-3">
+              <Phone className="shrink-0 text-brand" size={18} aria-hidden />
               <a href={site.phoneHref} className="text-white hover:text-brand">
-                {site.phone}
+                WhatsApp {site.phone}
               </a>
-            </li>
-            <li className="flex gap-3">
-              <Clock className="mt-0.5 shrink-0 text-brand" size={18} />
-              <span>
-                {site.hours.map((item) => (
-                  <span key={item.days} className="block">
-                    {item.days}: {item.time}
-                  </span>
-                ))}
-              </span>
-            </li>
-          </ul>
+            </p>
+          </address>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href={site.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="glow-brand inline-flex items-center justify-center gap-2 rounded-sm bg-brand px-5 py-3 text-[11px] font-extrabold tracking-[0.18em] text-white uppercase"
+              className="btn glow-brand gap-2 rounded-sm bg-brand px-5 text-[11px] font-extrabold tracking-[0.18em] text-white uppercase"
             >
               <Navigation size={14} />
-              Abrir en Google Maps
+              Abrir ubicación en Google Maps
             </a>
             <a
-              href={whatsappHref('Hola uno%, quiero saber cómo llegar a Pasco 649.')}
-              className="inline-flex items-center justify-center rounded-sm border border-white/25 px-5 py-3 text-[11px] font-extrabold tracking-[0.18em] text-white uppercase hover:border-brand"
+              href={whatsappHref('Hola UNO%, quiero consultar por WhatsApp.')}
+              className="btn rounded-sm border border-white/25 px-5 text-[11px] font-extrabold tracking-[0.18em] text-white uppercase hover:border-brand"
             >
-              Cómo llegar
+              Consultar por WhatsApp
             </a>
           </div>
         </div>
 
         <div className="min-h-[380px] border-t border-white/10 lg:min-h-[560px] lg:border-t-0 lg:border-l">
           <iframe
-            title="Mapa de Uno% Fitness en Pasco 649, San Cristóbal, CABA"
+            title="Mapa de UNO% Fitness en Pasco 649, San Cristóbal, CABA"
             src={site.mapsEmbed}
             className="h-full min-h-[380px] w-full grayscale contrast-125 lg:min-h-[560px]"
             loading="lazy"

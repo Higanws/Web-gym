@@ -1,18 +1,10 @@
 import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { navItems, site, whatsappHref } from '../data/site'
+import { images, navItems, site, whatsappHref } from '../data/site'
 
 export function Header() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState('#inicio')
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   useEffect(() => {
     const ids = navItems.map((item) => item.href.slice(1))
@@ -33,35 +25,38 @@ export function Header() {
   }, [])
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open ? 'bg-ink/90 backdrop-blur-md' : 'bg-transparent'
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 bg-ink">
       <div className="hidden border-b border-brand/50 bg-ink text-white md:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1.5 text-[11px] font-semibold tracking-[0.18em] uppercase">
-          <a href={site.phoneHref}>{site.phone}</a>
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs font-semibold tracking-[0.16em] uppercase">
+          <a href={site.phoneHref} className="inline-flex min-h-11 items-center">
+            {site.phone}
+          </a>
           <span>
             {site.address.street} · {site.address.neighborhood}
           </span>
-          <span>{site.hoursShort}</span>
+          <a href={whatsappHref('Hola UNO%.')} className="inline-flex min-h-11 items-center text-brand">
+            WhatsApp
+          </a>
         </div>
       </div>
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-6">
-        <a href="#inicio" className="flex items-baseline gap-1" aria-label="uno% Fitness, inicio">
-          <span className="font-display text-3xl leading-none text-white">uno</span>
-          <span className="font-display text-3xl leading-none text-brand">%</span>
+        <a href="#inicio" className="flex min-h-11 items-center" aria-label="UNO% Fitness, inicio">
+          <img
+            src={images.logo}
+            alt="UNO% Fitness"
+            className="h-9 w-auto object-contain object-left sm:h-10"
+          />
         </a>
 
-        <nav className="hidden items-center gap-5 xl:gap-8 lg:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-2 xl:gap-4 lg:flex" aria-label="Principal">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               data-active={active === item.href}
-              className={`nav-link text-[11px] font-bold tracking-[0.16em] uppercase xl:text-[12px] xl:tracking-[0.22em] ${
-                active === item.href ? 'text-brand' : 'text-white/80 hover:text-white'
+              className={`nav-link inline-flex min-h-11 items-center px-1 text-[11px] font-bold tracking-[0.16em] uppercase xl:text-[12px] xl:tracking-[0.2em] ${
+                active === item.href ? 'text-brand' : 'text-white hover:text-white'
               }`}
             >
               {item.label}
@@ -71,14 +66,14 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <a
-            href={whatsappHref('Hola uno%, quiero reservar una clase de prueba.')}
-            className="hidden rounded-sm bg-brand px-4 py-2 text-[11px] font-extrabold tracking-[0.18em] text-white uppercase transition hover:bg-brand-2 glow-brand sm:inline-flex"
+            href={whatsappHref('Hola UNO%, quiero reservar una clase de prueba.')}
+            className="btn glow-brand hidden rounded-sm bg-brand px-4 text-[11px] font-extrabold tracking-[0.18em] text-white uppercase transition hover:bg-brand-2 lg:inline-flex"
           >
             Reservar ahora
           </a>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-white/20 lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-white/20 lg:hidden"
             aria-expanded={open}
             aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
             onClick={() => setOpen((value) => !value)}
@@ -90,20 +85,20 @@ export function Header() {
 
       {open ? (
         <nav className="border-t border-white/10 bg-ink px-5 py-4 lg:hidden" aria-label="Móvil">
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-bold tracking-[0.2em] text-white uppercase"
+                className="inline-flex min-h-11 items-center text-sm font-bold tracking-[0.2em] text-white uppercase"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
               </a>
             ))}
             <a
-              href={whatsappHref('Hola uno%, quiero reservar una clase de prueba.')}
-              className="mt-2 inline-flex justify-center rounded-sm bg-brand px-4 py-3 text-xs font-extrabold tracking-[0.18em] text-white uppercase"
+              href={whatsappHref('Hola UNO%, quiero reservar una clase de prueba.')}
+              className="btn mt-3 rounded-sm bg-brand px-4 text-xs font-extrabold tracking-[0.18em] text-white uppercase"
               onClick={() => setOpen(false)}
             >
               Reservar ahora

@@ -1,11 +1,12 @@
 const items = [
-  'FUERZA',
-  'COMUNIDAD',
+  'ENTRENÁ',
+  'EVOLUCIONÁ',
+  'PERTENECÉ',
+  'MUSCULACIÓN',
+  'BOXEO',
+  'STRONG UNO%',
   'SAN CRISTÓBAL',
-  'EL 1%',
-  'SIN ATAJOS',
   'UNA SEDE',
-  'CONSTANCIA',
 ]
 
 export function Marquee() {
